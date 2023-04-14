@@ -1,66 +1,52 @@
 import { type NextPage } from "next";
-
-import Head from "next/head";
 import Link from "next/link";
-import Header from "~/components/molecules/Header";
-import DashboardTemplate from "~/components/templates/DashboardTemplate";
-
-import { api } from "~/utils/api";
-/**
-TODO:
-  * Cadastro de Usuário, usando JWT para autenticação *OK*
-  * Cadastrar cliente. 
-  * Cadastrar Produtos/Serviços
-  * Cadastrar Proposta para o cliente, selecionando pelo menos 2 produtos/serviços cadastrados.
-  * Enviar essa proposta para o e-mail do cliente.
-*/
-
+import DefaultTemplate from "~/components/templates/DefaultTemplate";
+ 
 const Home: NextPage = () => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  /**
+    * Cadastro de Usuário, usando JWT para autenticação *OK*
+    * Cadastrar cliente. 
+    * Cadastrar Produtos/Serviços
+    * Cadastrar Proposta para o cliente, selecionando pelo menos 2 produtos/serviços cadastrados.
+    * Enviar essa proposta para o e-mail do cliente.
+  */
 
+  
   return (
-    <>
-      <Head>
-        <title>Dashboard</title>
-        <meta name="description" content="Dashboard" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <DashboardTemplate>
-        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-          <Header />
-          <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-            Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-          </h1>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-            <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-              href="/clientes"
-              target="_blank"
-            >
-              <h3 className="text-2xl font-bold">Cadastro de clientes →</h3>
-              <p className="text-lg">
-                Cadastro de clientes, usando JWT para autenticação
-              </p>
-            </Link>
-            <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-              href="/produtos"
-              target="_blank"
-            >
-              <h3 className="text-2xl font-bold">Cadastro de Produtos →</h3>
-              <p className="text-lg">
-                Cadastro de Produtos/Serviços
-              </p>
-            </Link>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="text-2xl text-white">
-              {hello.data ? hello.data.greeting : "Loading tRPC query..."}
-            </p>
-          </div>
-        </div>
-      </DashboardTemplate>
-    </>
+    <DefaultTemplate>
+      <div className="flex flex-col items-center justify-center min-h-content bg-gray-100">
+      <h1 className="text-4xl font-bold mb-4">Features:</h1>
+      <ul className="list-disc pl-6">
+        <li className="mb-2">
+          Cadastro de Usuário, usando JWT para autenticação
+          <Link className="ml-2 text-blue-500" href="/signup">
+            Cadastrar-se
+          </Link>
+        </li>
+        <li className="mb-2">
+          Cadastrar cliente.
+          <Link className="ml-2 text-blue-500" href="/create-client">
+            Cadastrar cliente
+          </Link>
+        </li>
+        <li className="mb-2">
+          Cadastrar Produtos/Serviços
+          <Link className="ml-2 text-blue-500" href="/create-product">
+            Cadastrar produto/serviço
+          </Link>
+        </li>
+        <li className="mb-2">
+          Cadastrar Proposta para o cliente, selecionando pelo menos 2 produtos/serviços cadastrados.
+          <Link className="ml-2 text-blue-500" href="/create-proposal">
+            Cadastrar proposta
+          </Link>
+        </li>
+        <li>
+          Enviar essa proposta para o e-mail do cliente.
+        </li>
+      </ul>
+    </div>
+    </DefaultTemplate>
   );
 };
 
