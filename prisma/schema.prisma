@@ -16,8 +16,8 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
-    customers     Customer[]
     products      Product[]
+    customers     Customer[]
 }
 
 // Account model (necessary for Next Auth)
@@ -64,7 +64,7 @@ model Customer {
     email         String     @unique
     description   String?
     image         String?
-    user          User        @relation(fields: [id], references: [id], onDelete: Cascade)
+    user          User       @relation(fields: [id], references: [id], onDelete: Cascade)
     proposals     Proposal[]
 }
 
