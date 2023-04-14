@@ -6,7 +6,6 @@ import {
 } from "~/server/api/trpc";
 
 
-// Customer CRUD operations
 const zCustomer = z.object({
   id: z.string().nonempty(),
   name: z.string().nonempty(),
@@ -15,15 +14,16 @@ const zCustomer = z.object({
   image: z.string().optional(),
 });
 
+const zCustomerInput =  zCustomer.omit({ id: true });
+
 type Customer = z.infer<typeof zCustomer>;
 
-type CreateCustomerInput = Omit<Customer, "id">;
-type UpdateCustomerInput = Partial<Omit<Customer, "id">>;
+type CreateCustomerInput = z.infer<typeof zCustomerInput>;
 
 export const customerRouter = createTRPCRouter({
   
   createCustomer: protectedProcedure
-  .input(zCustomer)
+  .input(zCustomerInput)
   .mutation(({ ctx, input }) => {
     return ctx.prisma.customer
       .create({
