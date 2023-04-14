@@ -1,5 +1,4 @@
 # Create T3 App
-![image](https://user-images.githubusercontent.com/1678894/232127018-0f53b62d-287e-4640-9cb9-0223048460cf.png)
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
@@ -14,6 +13,8 @@ If you are not familiar with the different technologies used in this project, pl
 - [Prisma](https://prisma.io)
 - [Tailwind CSS](https://tailwindcss.com)
 - [tRPC](https://trpc.io)
+
+![image](https://user-images.githubusercontent.com/1678894/232127018-0f53b62d-287e-4640-9cb9-0223048460cf.png)
 
 ## Learn More
 
