@@ -1,4 +1,11 @@
-# Create T3 App
+# Simple App Create with T3 App
+
+Features:
+* User Registration, using JWT for authentication (via Next-Auth OAuth)
+* register customer
+* Register Products/Services
+* Register Proposal for the customer, selecting at least 2 registered products/services.
+* Send this proposal to the customer's email.
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
