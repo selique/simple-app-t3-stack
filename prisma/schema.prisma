@@ -71,12 +71,11 @@ model Customer {
 // Product model
 model Product {
     id            String      @id @default(cuid())
-    name          String?
+    name          String
     description   String?
-    price         String?
+    price         String
     image         String?
     category      String?
-    quantity      String?
     user          User        @relation(fields: [id], references: [id], onDelete: Cascade)
     proposals     Proposal[]  // One product can be present in multiple proposals
 }
@@ -84,12 +83,8 @@ model Product {
 // Proposal model
 model Proposal {
     id            String      @id @default(cuid())
-    name          String?
     description   String?
-    price         String?
-    image         String?
-    category      String?
-    quantity      String?
+    price         String
     customer      Customer    @relation(fields: [id], references: [id], onDelete: Cascade)
     products      Product[]   // A proposal can have multiple products
 }
