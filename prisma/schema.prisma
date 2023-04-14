@@ -60,8 +60,8 @@ model VerificationToken {
 // Customer model
 model Customer {
     id            String      @id @default(cuid())
-    name          String?
-    email         String?     @unique
+    name          String
+    email         String     @unique
     description   String?
     image         String?
     user          User        @relation(fields: [id], references: [id], onDelete: Cascade)
