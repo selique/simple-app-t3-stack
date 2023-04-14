@@ -1,16 +1,12 @@
 import { type NextPage } from "next";
-
 import Head from "next/head";
 import Link from "next/link";
 import Header from "~/components/molecules/Header";
 import Menu from "~/components/molecules/Menu";
 import DefaultTemplate from "~/components/templates/DefaultTemplate";
-import { api } from "~/utils/api";
 
 
 const DashboardPage: NextPage = () => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
-  
   return (
     <>
       <Head>
@@ -21,7 +17,7 @@ const DashboardPage: NextPage = () => {
       <DefaultTemplate>
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
           <Header />
-        <Menu />
+          <Menu />
           <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
             Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
           </h1>
@@ -47,11 +43,7 @@ const DashboardPage: NextPage = () => {
               </p>
             </Link>
           </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="text-2xl text-white">
-              {hello.data ? hello.data.greeting : "Loading tRPC query..."}
-            </p>
-          </div>
+        
         </div>
       </DefaultTemplate>
     </>
@@ -59,4 +51,3 @@ const DashboardPage: NextPage = () => {
 };
 
 export default DashboardPage;
-
