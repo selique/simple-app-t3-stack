@@ -75,7 +75,7 @@ model Product {
     description   String?
     price         Decimal
     image         String?
-    category      String?
+    category      String      // enum Category "product" | "service, obs only works on zod because unsuport SQLite enums
     user          User        @relation(fields: [id], references: [id], onDelete: Cascade)
     proposals     Proposal[]  // One product can be present in multiple proposals
 }
